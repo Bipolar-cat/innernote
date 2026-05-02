@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, jsonify
 import sqlite3
 from datetime import datetime, timedelta, timezone
@@ -29,9 +30,3 @@ def get_logs():
         conn.row_factory = sqlite3.Row
         logs = conn.execute('SELECT * FROM logs ORDER BY id DESC').fetchall()
     return jsonify([dict(log) for log in logs])
-
-if __name__ == '__main__':
-    init_db()
-    app.run(host='0.0.0.0', port=5000)
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
