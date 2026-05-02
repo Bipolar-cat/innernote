@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: innernote
+    name: innernote-app
     runtime: python
-    buildCommand: pip install flask
-    startCommand: python app.py
+    buildCommand: pip install flask gunicorn
+    startCommand: gunicorn app:app
